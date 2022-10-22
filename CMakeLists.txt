@@ -12,6 +12,10 @@ add_subdirectory(include)
 add_subdirectory(src)
 
 
+# Fetch external dependencies
+add_subdirectory(ext)
+
+
 # Add evolution simulator executable target
 add_executable(render_sandbox
     ${RENDER_SANDBOX_HEADERS}
@@ -21,4 +25,9 @@ add_executable(render_sandbox
 target_include_directories(render_sandbox
 PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+target_link_libraries(render_sandbox
+PUBLIC
+    gut_opengl
 )
