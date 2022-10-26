@@ -31,3 +31,8 @@ target_link_libraries(render_sandbox
 PUBLIC
     gut_opengl
 )
+
+target_compile_definitions(render_sandbox
+PUBLIC
+    -DRES_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/res/\"
+)
