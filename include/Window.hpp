@@ -16,7 +16,7 @@
 
 #include <SDL.h>
 
-#include "RenderContext.hpp"
+#include <gut_opengl/RenderContext.hpp>
 
 
 class Window {
@@ -84,13 +84,13 @@ public:
 
         // Pipeline function pointers for event handling and rendering
         void (*handleEvents)(SDL_Event& event, Context& windowContext);
-        void (*render)(RenderContext& context, Context& windowContext);
+        void (*render)(gut::RenderContext& context, Context& windowContext);
 
         explicit Settings(
             const WindowSettings& window                                = WindowSettings(),
             const GLSettings& gl                                        = GLSettings(),
             void (*handleEvents)(SDL_Event&, Context& windowContext)    = nullptr,
-            void (*render)(RenderContext&, Context& windowContext)      = nullptr
+            void (*render)(gut::RenderContext&, Context& windowContext) = nullptr
         ) :
             window          (window),
             gl              (gl),
@@ -101,13 +101,13 @@ public:
 
     explicit Window(
         const Settings& settings = Settings(),
-        RenderContext* renderContext = nullptr);
+        gut::RenderContext* renderContext = nullptr);
 
     ~Window();
 
     void loop(void);
 
-    void setRenderContext(RenderContext* renderContext);
+    void setRenderContext(gut::RenderContext* renderContext);
 
 private:
     Settings            _settings;
@@ -118,7 +118,7 @@ private:
     uint32_t            _frameTicks;
 
     Window::Context     _windowContext;
-    RenderContext*      _renderContext;
+    gut::RenderContext* _renderContext;
 };
 
 

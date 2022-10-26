@@ -18,7 +18,7 @@
 
 Window::Window(
     const Window::Settings &settings,
-    RenderContext* renderContext
+    gut::RenderContext* renderContext
 ) :
     _settings       (settings),
     _window         (nullptr),
@@ -133,7 +133,7 @@ void Window::loop(void)
     }
 }
 
-void Window::setRenderContext(RenderContext* renderContext)
+void Window::setRenderContext(gut::RenderContext* renderContext)
 {
     _renderContext = renderContext;
 }
